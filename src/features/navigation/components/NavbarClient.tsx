@@ -24,9 +24,10 @@ export function NavbarClient() {
 
   const dark = isDarkSection(pathname ?? "/");
   const textClass = dark ? "text-sense-light" : "text-sense-dark";
+  const positionClass = scrolled ? "fixed" : "absolute";
   const barClass = scrolled
-    ? "bg-sense-light/90 backdrop-blur-md text-sense-dark"
-    : textClass;
+    ? "bg-white/90 backdrop-blur-md text-sense-dark"
+    : `bg-transparent ${textClass}`;
 
   const handleMobileToggle = () => setMobileOpen((prev) => !prev);
   const handleMobileClose = () => setMobileOpen(false);
@@ -34,7 +35,7 @@ export function NavbarClient() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full px-6 py-4 transition-colors duration-300 ${barClass}`}
+        className={`${positionClass} top-0 left-0 right-0 z-50 w-full px-6 py-4 transition-[background-color,color] duration-300 ${barClass}`}
       >
         <div className="mx-auto flex max-w-[1200px] items-center justify-between">
           <Link

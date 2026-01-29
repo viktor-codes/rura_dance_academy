@@ -55,6 +55,13 @@ type HeroProps = {
 
 ```
 
+### Hero Video Showcase
+- **Structure**: Large-scale video container placed below the main CTA.
+- **Container**: `max-w-6xl`, `rounded-2xl`, `bg-sens-light/20`, `backdrop-blur-sm`, `p-1`.
+- **Video Styling**: `aspect-15/8`, `object-cover`, `rounded-2xl`.
+- **Attributes**: Autoplay, loop, muted, playsinline.
+- **Animation**: Integrated into `AnimatedGroup` with `transitionVariants` (fade-in-blur + y-offset).
+
 ## 7. Acceptance Criteria
 
 * [ ] Background image is displayed with a dark overlay.

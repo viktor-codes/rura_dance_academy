@@ -49,6 +49,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   --animate-fade-in-blur: fade-in-blur 0.7s ease-out forwards;
+  --animate-fade-in-blur-up: fade-in-blur-up 0.7s ease-out forwards;
 }
 
 @keyframes fade-in-blur {
@@ -59,6 +60,19 @@
   to {
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+@keyframes fade-in-blur-up {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
   }
 }
 

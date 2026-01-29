@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Navbar } from "@/features/navigation/components";
 import { angst, roboto } from "@/lib/fonts";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default async function RootLayout({
       <body
         className={`${angst.variable} ${roboto.variable} font-sans antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

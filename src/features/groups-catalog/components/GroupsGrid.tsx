@@ -1,7 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import type { PanInfo } from "motion-dom";
 import { useState } from "react";
+import { GroupCard } from "./GroupCard";
 import { AGE_TABS, GROUPS_DATA } from "../constants";
 import type { AgeGroup, DanceStyle } from "../types";
 
@@ -10,10 +12,33 @@ function getFilteredStyles(styles: readonly DanceStyle[], ageGroup: AgeGroup): D
 }
 
 const STAGGER_DELAY = 0.1;
+const SWIPE_THRESHOLD_PX = 50;
+const DRAG_CONSTRAINT_PX = 80;
+
+const AGE_ORDER: AgeGroup[] = ["kids", "teens", "adults"];
+
+function getNextTab(current: AgeGroup): AgeGroup {
+  const i = AGE_ORDER.indexOf(current);
+  return AGE_ORDER[(i + 1) % AGE_ORDER.length];
+}
+
+function getPrevTab(current: AgeGroup): AgeGroup {
+  const i = AGE_ORDER.indexOf(current);
+  return AGE_ORDER[(i - 1 + AGE_ORDER.length) % AGE_ORDER.length];
+}
 
 export function GroupsGrid() {
   const [activeTab, setActiveTab] = useState<AgeGroup>("kids");
   const filtered = getFilteredStyles(GROUPS_DATA, activeTab);
+
+  function handleSwipeEnd(_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+    const offsetX = info.offset.x;
+    if (offsetX > SWIPE_THRESHOLD_PX) {
+      setActiveTab(getPrevTab(activeTab));
+    } else if (offsetX < -SWIPE_THRESHOLD_PX) {
+      setActiveTab(getNextTab(activeTab));
+    }
+  }
 
   return (
     <section
@@ -65,20 +90,30 @@ export function GroupsGrid() {
         </nav>
 
         <div className="md:hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, filter: "blur(12px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(12px)" }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="grid grid-cols-1 gap-6"
-            >
-              {filtered.map((style) => (
-                <GroupCard key={style.id} style={style} />
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            drag="x"
+            dragDirectionLock
+            dragConstraints={{ left: -DRAG_CONSTRAINT_PX, right: DRAG_CONSTRAINT_PX }}
+            dragElastic={0.2}
+            dragSnapToOrigin
+            onDragEnd={handleSwipeEnd}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, filter: "blur(12px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, filter: "blur(12px)" }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="grid grid-cols-1 gap-6"
+              >
+                {filtered.map((style) => (
+                  <GroupCard key={style.id} style={style} />
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
         </div>
 
         <div className="hidden gap-6 md:grid md:grid-cols-3">
@@ -95,34 +130,5 @@ export function GroupsGrid() {
         </div>
       </div>
     </section>
-  );
-}
-
-type GroupCardProps = {
-  style: DanceStyle;
-};
-
-function GroupCard({ style }: GroupCardProps) {
-  return (
-    <motion.article
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="flex flex-col overflow-hidden rounded-lg border border-border bg-white shadow-sm transition-colors focus-within:ring-2 focus-within:ring-sense-rose focus-within:ring-offset-2 hover:border-sense-rose"
-    >
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-angst text-lg font-bold text-sense-dark">
-          {style.title}
-        </h3>
-        <p className="mt-2 flex-1 font-sans text-sm text-sense-dark">
-          {style.description}
-        </p>
-        <span
-          className="mt-4 inline-flex w-fit rounded-full border border-sense-rose/40 px-3 py-1 font-sans text-xs font-medium text-sense-rose"
-          aria-hidden
-        >
-          {style.benefit}
-        </span>
-      </div>
-    </motion.article>
   );
 }

@@ -4,7 +4,7 @@ export type DanceStyle = {
   id: string;
   title: string;
   description: string;
-  benefit: string;
+  benefit: string[];
   ageGroup: AgeGroup;
   image: string;
 };

@@ -6,27 +6,27 @@ export const GROUPS_DATA: DanceStyle[] = [
     title: "Intro to Latin",
     description:
       "Focus on posture, coordination, and basic rhythm in a fun environment.",
-    benefit: "Early Development",
+    benefit: ["Early Development", "Fun", "Social"],
     ageGroup: "kids",
-    image: "",
+    image: "/images/kids.jpg",
   },
   {
     id: "latin-energy",
     title: "Latin Energy",
     description:
       "Master Cha-cha and Samba while building stage confidence and speed.",
-    benefit: "Confidence",
+    benefit: ["Confidence"],
     ageGroup: "teens",
-    image: "",
+    image: "/images/teens.jpg",
   },
   {
     id: "sensual-flow",
     title: "Sensual Flow",
     description:
       "Embrace femininity through Rumba and Stretching. Your time for self-care.",
-    benefit: "Self-Care",
+    benefit: ["Self-Care"],
     ageGroup: "adults",
-    image: "",
+    image: "/images/adults.jpg",
   },
 ];
 

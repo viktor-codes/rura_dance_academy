@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { Navbar } from "@/features/navigation/components";
 import { angst, roboto } from "@/lib/fonts";
 import "./globals.css";
@@ -18,6 +19,7 @@ export default async function RootLayout({
       <body
         className={`${angst.variable} ${roboto.variable} font-sans antialiased`}
       >
+        <GrainOverlay />
         <Navbar />
         {children}
       </body>

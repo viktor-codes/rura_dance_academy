@@ -31,7 +31,7 @@ export const GROUPS_DATA: DanceStyle[] = [
 ];
 
 export const AGE_TABS: { value: AgeGroup; label: string }[] = [
-  { value: "kids", label: "4–12" },
-  { value: "teens", label: "13–19" },
-  { value: "adults", label: "20+" },
+  { value: "kids", label: "Kids" },
+  { value: "teens", label: "Teens" },
+  { value: "adults", label: "Adults" },
 ];

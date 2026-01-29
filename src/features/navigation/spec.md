@@ -15,3 +15,22 @@
 - Component: `src/features/navigation/components/Navbar.tsx`
 - Use `framer-motion` for subtle hover effects.
 - Mobile: Hamburger menu (using Shadcn Sheet).
+
+# Spec Update: Mobile Overlay Navigation
+
+## 1. Visual Behavior
+- **Animation**: Menu drops down from the top (Y-axis: -100% to 0).
+- **Layout**: 
+  - Logo stays fixed in its top-left position.
+  - Burger icon stays fixed in its top-right position.
+  - Menu items are vertically and horizontally centered in the screen.
+- **Burger Transformation**: Animated transition from 3 lines to an "X" shape.
+
+## 2. Technical Requirements
+- Use `AnimatePresence` from `framer-motion` for mounting/unmounting.
+- Menu overlay must have `backdrop-blur-md` and `bg-sense-light/95`.
+- Font: Links in `var(--font-sans)`, uppercase, tracked-wider.
+
+## 3. Interaction
+- Burger click triggers `isOpen` state.
+- Clicking a link or the "X" closes the menu.

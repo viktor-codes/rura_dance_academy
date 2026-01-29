@@ -1,3 +1,4 @@
+import { GroupsGrid } from "@/features/groups-catalog/components";
 import { Hero } from "@/features/hero/components";
 
 const HERO_PROPS = {
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main>
       <Hero {...HERO_PROPS} />
+      <GroupsGrid />
     </main>
   );
 }

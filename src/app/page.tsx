@@ -5,7 +5,7 @@ const HERO_PROPS = {
   title: "Ballroom Dance Classes in the Irish Midlands",
   description:
     "Take a free trial class and find out how dance can transform your world.",
-  videoSrc: "/hero-video.mp4",
+  imageSrc: "/images/hero-bg.jpg",
   ctaText: "Book a Trial",
 } as const;
 

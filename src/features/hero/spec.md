@@ -12,13 +12,13 @@ The first screen must immediately communicate the premium, feminine, and profess
 
 ## 3. Goals
 
-* Create a "wow" visual impact using high-quality video.
+* Create a "wow" visual impact using a high-quality photo background.
 * Use elegant typography (Angst) to establish brand authority.
 * Provide a clear, intuitive Call to Action (CTA).
 
 ## 4. Functional Requirements
 
-* **Video Background:** Play a muted, looping video (`/hero-video.mp4`) with a dark overlay.
+* **Photo Background:** Display the background image (`/images/hero-bg.jpg`) with a dark overlay.
 * **Text Animation:** Use `TextEffect` (fade-in-blur) for the main heading.
 * **Smooth Entrance:** Use `AnimatedGroup` to stagger the entrance of the subheadline and buttons.
 * **Sticky Header:** The navigation must be integrated or sit transparently above the hero.
@@ -49,7 +49,7 @@ The first screen must immediately communicate the premium, feminine, and profess
 type HeroProps = {
   title: string;
   description: string;
-  videoSrc: string;
+  imageSrc: string;
   ctaText: string;
 }
 
@@ -57,7 +57,7 @@ type HeroProps = {
 
 ## 7. Acceptance Criteria
 
-* [ ] Video plays automatically and is muted.
+* [ ] Background image is displayed with a dark overlay.
 * [ ] Heading uses `Angst` font and "fade-in-blur" animation.
 * [ ] Button uses the brand Rose color and has a smooth hover scale effect.
 * [ ] Layout is perfectly centered on all screen sizes.

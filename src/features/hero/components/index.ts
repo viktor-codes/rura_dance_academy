@@ -1,4 +1,4 @@
 export { AnimatedGroup } from "./AnimatedGroup";
 export { Hero } from "./Hero";
-export { HeroVideoBackground } from "./HeroVideoBackground";
+export { HeroImageBackground } from "./HeroImageBackground";
 export { TextEffect } from "./TextEffect";

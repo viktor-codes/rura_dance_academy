@@ -2,8 +2,8 @@ const VIDEO_SRC = "/hero-video.mp4";
 
 export function HeroVideoCard() {
   return (
-    <div className="relative w-full overflow-hidden px-2 md:px-16 sm:mt-12 md:mt-16">
-      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl bg-sense-light p-1 shadow-lg shadow-sense-dark/15 ring-1 ring-sense-dark/10">
+    <div className="relative w-full overflow-hidden px-2 md:px-16 mt-16 sm:mt-32 2xl:mt-96 ">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-sense-light/70 p-0.5">
         <video
           src={VIDEO_SRC}
           autoPlay
@@ -11,9 +11,10 @@ export function HeroVideoCard() {
           muted
           playsInline
           aria-hidden
-          className="relative w-full aspect-[15/8] rounded-2xl object-cover bg-background"
+          className="relative w-full aspect-[13/6.5] rounded-4xl object-cover bg-background"
         />
       </div>
+      
     </div>
   );
 }

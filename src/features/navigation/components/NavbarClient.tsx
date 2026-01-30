@@ -45,7 +45,7 @@ export function NavbarClient() {
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-500 ease-in-out ${
             scrolled
-              ? "max-w-4xl rounded-full border border-white/20 bg-white/30 p-6 shadow-lg backdrop-blur-lg"
+              ? "max-w-4xl rounded-full border border-white/20 bg-white/30 p-6 shadow-lg backdrop-blur-xl"
               : "max-w-[1200px] bg-transparent px-6 py-6"
           }`}
         >

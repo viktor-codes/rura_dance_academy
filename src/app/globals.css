@@ -50,6 +50,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
   --animate-fade-in-blur: fade-in-blur 0.7s ease-out forwards;
   --animate-fade-in-blur-up: fade-in-blur-up 0.7s ease-out forwards;
+  --animate-pulse-subtle: pulse-subtle 3s ease-in-out infinite;
 }
 
 @keyframes fade-in-blur {
@@ -73,6 +74,15 @@
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    scale: 1;
+  }
+  50% {
+    scale: 0.93;
   }
 }
 
@@ -151,5 +161,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

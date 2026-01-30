@@ -42,7 +42,7 @@ export function GroupsGrid() {
 
   return (
     <section
-      className="bg-sense-light pb-16 pt-32"
+      className="bg-sense-light py-16"
       aria-labelledby="groups-heading"
     >
       <div className="mx-auto max-w-7xl px-6">

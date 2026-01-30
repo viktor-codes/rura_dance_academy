@@ -27,6 +27,7 @@ export function Hero({ title, description, imageSrc, ctaText }: HeroProps) {
           </AnimatedGroup>
         </div>
       </div>
+      <div className="h-40 md:h-48 bg-sense-light absolute bottom-0 left-0 right-0"/>
     </section>
   );
 }

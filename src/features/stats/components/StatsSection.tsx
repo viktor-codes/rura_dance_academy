@@ -11,7 +11,7 @@ const SECTION_DESCRIPTION =
 
 export function StatsSection() {
   return (
-    <section className="relative z-10 bg-sense-light py-16 dark:bg-transparent">
+    <section className="relative z-10 bg-sense-light py-24 dark:bg-transparent">
       <svg aria-hidden className="absolute size-0" focusable={false}>
         <defs>
           <clipPath id={HEART_CLIP_ID} clipPathUnits="objectBoundingBox">

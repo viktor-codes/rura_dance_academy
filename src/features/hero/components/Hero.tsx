@@ -19,7 +19,7 @@ export function Hero({ title, description, imageSrc, ctaText }: HeroProps) {
             </p>
             <a
               href="#trial"
-              className="inline-block rounded-full bg-sense-rose px-8 py-4 font-sans uppercase tracking-wide text-sense-dark transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose hover:scale-105"
+              className="inline-block rounded-full bg-sense-rose px-8 py-4 font-sans uppercase tracking-wide text-sense-dark transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose hover:scale-105"
             >
               {ctaText}
             </a>

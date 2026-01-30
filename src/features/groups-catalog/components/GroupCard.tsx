@@ -32,7 +32,7 @@ export function GroupCard({ style }: GroupCardProps) {
       )}
       {hasImage && (
         <div
-          className="absolute inset-0 bg-gradient-to-b from-sense-dark via-sense-dark/25 to-sense-dark"
+          className="absolute inset-0 bg-linear-to-b from-sense-dark via-sense-dark/25 to-sense-dark"
           aria-hidden
         />
       )}

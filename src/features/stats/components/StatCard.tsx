@@ -34,7 +34,7 @@ export function StatCard({
     if (!enableFloatAnimation) {
       return (
         <div
-          className="relative flex size-60 flex-shrink-0 cursor-pointer animate-pulse-subtle transition-colors duration-300"
+          className="relative flex size-60 flex-col items-center justify-center shrink-0 cursor-pointer animate-pulse-subtle transition-colors duration-300"
           style={{
             clipPath: `url(#${HEART_CLIP_ID})`,
           }}

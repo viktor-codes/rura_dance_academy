@@ -19,7 +19,7 @@ export default async function RootLayout({
       <body
         className={`${angst.variable} ${roboto.variable} font-sans antialiased`}
       >
-        <GrainOverlay />
+        {/* <GrainOverlay /> */}
         <Navbar />
         {children}
       </body>

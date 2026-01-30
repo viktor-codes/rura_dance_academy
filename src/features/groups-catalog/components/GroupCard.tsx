@@ -21,7 +21,7 @@ export function GroupCard({ style }: GroupCardProps) {
     <motion.article
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="relative flex h-full min-h-[350px] z-[100000] flex-col overflow-hidden rounded-4xl border border-border bg-white shadow-sm transition-colors focus-within:ring-2 focus-within:ring-sense-rose focus-within:ring-offset-2 hover:border-sense-rose"
+      className="relative flex h-full min-h-[350px] flex-col overflow-hidden rounded-4xl border border-border bg-white shadow-sm transition-colors focus-within:ring-2 focus-within:ring-sense-rose focus-within:ring-offset-2 hover:border-sense-rose"
     >
       {hasImage && (
         <div

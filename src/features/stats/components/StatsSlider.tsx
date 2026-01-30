@@ -13,7 +13,7 @@ export function StatsSlider() {
       {STATS_ITEMS.map((item, index) => (
         <div
           key={item.label}
-          className="flex min-w-[min(280px,calc(100vw-5rem))] flex-shrink-0 snap-center items-center justify-center"
+          className="flex min-w-[min(280px,calc(100vw-5rem))] shrink-0 snap-center items-center justify-center"
         >
           <StatCard
             item={item}

@@ -34,7 +34,7 @@ export function StatCard({
     if (!enableFloatAnimation) {
       return (
         <div
-          className="relative flex size-60 flex-col items-center justify-center shrink-0 cursor-pointer animate-pulse-subtle transition-colors duration-300"
+          className="relative flex size-60 shrink-0 cursor-pointer animate-pulse-subtle transition-colors duration-300"
           style={{
             clipPath: `url(#${HEART_CLIP_ID})`,
           }}
@@ -67,7 +67,7 @@ export function StatCard({
 
     return (
       <motion.div
-        className="relative flex size-60 flex-shrink-0 cursor-pointer transition-colors duration-300"
+        className="relative flex size-60 shrink-0 cursor-pointer transition-colors duration-300"
         animate={{ scale: [1, 1.05, 1], opacity: 1 }}
         transition={{
           scale: {
@@ -113,7 +113,7 @@ export function StatCard({
 
   if (!enableFloatAnimation) {
     return (
-      <div className="flex size-60 flex-shrink-0 flex-col items-center justify-center">
+      <div className="flex size-60 shrink-0 flex-col items-center justify-center">
         <div className="flex size-full flex-col items-center justify-center rounded-full border-2 border-sense-rose bg-secondary/10 p-2 text-center transition-colors duration-300 hover:bg-sense-rose/10 animate-pulse-subtle cursor-pointer">
           <h4 className="text-2xl font-bold text-sense-dark sm:text-3xl">
             {item.value}

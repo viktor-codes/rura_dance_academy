@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,18 +16,21 @@ export function NavbarClient() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 0);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const dark = isDarkSection(pathname ?? "/");
-  const textClass = dark ? "text-sense-light" : "text-sense-dark";
-  const positionClass = scrolled ? "fixed" : "absolute";
-  const barClass = scrolled
-    ? "bg-white/90 backdrop-blur-md text-sense-dark"
-    : `bg-transparent ${textClass}`;
+  const isHomePage = pathname === "/";
+  
+  // Определяем цвет текста в зависимости от скролла и страницы
+  // Если проскроллено — всегда темный (т.к. фон капсулы светлый)
+  // Если нет — белый на главной и темный на остальных
+  const textClass = scrolled 
+    ? "text-sense-dark" 
+    : (dark ? "text-sense-light" : "text-sense-dark");
 
   const handleMobileToggle = () => setMobileOpen((prev) => !prev);
   const handleMobileClose = () => setMobileOpen(false);
@@ -35,12 +38,20 @@ export function NavbarClient() {
   return (
     <>
       <header
-        className={`${positionClass} top-0 left-0 right-0 z-50 w-full px-6 py-4 transition-[background-color,color] duration-300 ${barClass}`}
+        className={`fixed left-0 right-0 top-0 z-50 w-full transition-all duration-500 ${
+          scrolled ? "pt-2" : "pt-0"
+        }`}
       >
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between">
+        <div
+          className={`mx-auto flex items-center justify-between transition-all duration-500 ease-in-out ${
+            scrolled
+              ? "max-w-4xl rounded-full border border-white/20 bg-white/30 p-6 shadow-lg backdrop-blur-lg"
+              : "max-w-[1200px] bg-transparent px-6 py-6"
+          }`}
+        >
           <Link
             href="/"
-            className="font-angst text-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose"
+            className={`font-angst text-2xl transition-colors duration-300 focus-visible:outline-none ${textClass}`}
           >
             Rura Dance Academy
           </Link>
@@ -57,7 +68,7 @@ export function NavbarClient() {
               >
                 <Link
                   href={item.href}
-                  className={`font-sans font-normal ${scrolled ? "text-sense-dark" : textClass} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose`}
+                  className={`font-sans text-sm font-medium transition-colors duration-300 ${textClass} hover:opacity-70`}
                 >
                   {item.label}
                 </Link>
@@ -69,7 +80,11 @@ export function NavbarClient() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="#trial"
-                className="rounded-full bg-sense-rose px-5 py-2.5 font-sans text-sense-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose"
+                className={`rounded-full px-6 py-2.5 font-sans text-sm font-bold uppercase tracking-wider transition-all shadow-sm ${
+                  scrolled 
+                    ? "bg-sense-rose text-sense-dark" 
+                    : "bg-sense-rose text-sense-dark"
+                }`}
               >
                 {NAV_CTA_LABEL}
               </Link>
@@ -80,14 +95,18 @@ export function NavbarClient() {
             <BurgerIcon
               open={mobileOpen}
               onClick={handleMobileToggle}
-              className={scrolled ? "text-sense-dark" : textClass}
+              className={`transition-colors duration-300 ${textClass}`}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             />
           </div>
         </div>
       </header>
 
-      <MobileMenuOverlay open={mobileOpen} onClose={handleMobileClose} />
+      <AnimatePresence>
+        {mobileOpen && (
+          <MobileMenuOverlay open={mobileOpen} onClose={handleMobileClose} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

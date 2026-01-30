@@ -10,11 +10,11 @@ export function Hero({ title, description, imageSrc, ctaText }: HeroProps) {
       <HeroImageBackground imageSrc={imageSrc} />
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-40 pb-20 md:pt-56">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-8 text-center">
-          <h1 className="font-angst font-bold text-sense-light text-[40px] leading-tight md:text-[64px]">
+          <h1 className="font-angst font-bold text-white text-[40px] leading-tight md:text-[64px] max-w-2xl mx-auto">
             <TextEffect>{title}</TextEffect>
           </h1>
           <AnimatedGroup className="flex flex-col items-center">
-            <p className="max-w-2xl font-sans text-lg text-sense-light">
+            <p className="max-w-2xl font-sans text-lg text-white">
               {description}
             </p>
             <a

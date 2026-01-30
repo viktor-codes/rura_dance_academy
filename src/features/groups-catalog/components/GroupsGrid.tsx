@@ -69,7 +69,7 @@ export function GroupsGrid() {
                 key={value}
                 type="button"
                 onClick={() => setActiveTab(value)}
-                className={`relative z-10 rounded-full px-6 py-2.5 font-sans text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose ${
+                className={`relative z-10 rounded-full px-6 py-2.5 font-sans text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sense-rose ${
                   activeTab === value ? "text-sense-rose" : "text-sense-dark"
                 }`}
                 aria-pressed={activeTab === value}

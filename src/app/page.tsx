@@ -1,5 +1,6 @@
 import { GroupsGrid } from "@/features/groups-catalog/components";
 import { Hero } from "@/features/hero/components";
+import { StatsSection } from "@/features/stats/components";
 
 const HERO_PROPS = {
   title: "Ballroom Dance Classes in the Irish Midlands",
@@ -14,6 +15,7 @@ export default function Home() {
     <main>
       <Hero {...HERO_PROPS} />
       <GroupsGrid />
+      <StatsSection />
     </main>
   );
 }

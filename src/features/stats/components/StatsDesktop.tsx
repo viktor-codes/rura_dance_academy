@@ -25,7 +25,7 @@ const DESKTOP_POSITIONS: readonly {
 
 export function StatsDesktop() {
   return (
-    <div className="relative mx-auto mt-8 hidden h-96 w-full max-w-5xl md:mt-16 lg:block">
+    <div className="relative mx-auto hidden h-96 w-full max-w-5xl lg:block -mt-4">
       {STATS_ITEMS.map((item, index) => {
         const pos = DESKTOP_POSITIONS[index];
         return (

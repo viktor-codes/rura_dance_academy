@@ -5,13 +5,13 @@ import { HEART_CLIP_ID } from "./StatCard";
 import { StatsDesktop } from "./StatsDesktop";
 import { StatsSlider } from "./StatsSlider";
 
-const SECTION_TITLE = "More Than Just Steps";
+const SECTION_TITLE = "The Pulse of Every Movement";
 const SECTION_DESCRIPTION =
-  "Rura Dance Academy provides a fun, friendly, and personalized environment for dancers of every age and skill level. Our commitment is to build technical skill, confidence, and a lifelong love for dance.";
+  "At Rura Dance Academy, we believe dance is more than just steps. It is the heartbeat of our community, where technical excellence meets raw passion in every beat."
 
 export function StatsSection() {
   return (
-    <section className="relative z-10 bg-sense-light py-16 dark:bg-transparent md:py-32">
+    <section className="relative z-10 bg-sense-light py-16 dark:bg-transparent">
       <svg aria-hidden className="absolute size-0" focusable={false}>
         <defs>
           <clipPath id={HEART_CLIP_ID} clipPathUnits="objectBoundingBox">

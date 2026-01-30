@@ -42,14 +42,14 @@ export function GroupsGrid() {
 
   return (
     <section
-      className="bg-sense-light py-16"
+      className="bg-sense-light pb-16 pt-32"
       aria-labelledby="groups-heading"
     >
       <div className="mx-auto max-w-7xl px-6">
         <header className="mb-12 text-center">
           <h2
             id="groups-heading"
-            className="font-angst text-3xl font-bold text-sense-dark md:text-4xl"
+            className="font-angst text-4xl font-medium text-sense-dark md:text-5xl"
           >
             Find Your Rhythm
           </h2>

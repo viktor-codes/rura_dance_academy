@@ -34,7 +34,7 @@ export function StatCard({
     if (!enableFloatAnimation) {
       return (
         <div
-          className="relative flex size-60 shrink-0 cursor-pointer animate-pulse-subtle transition-colors duration-300"
+          className="relative flex size-60 shrink-0 animate-pulse-subtle"
           style={{
             clipPath: `url(#${HEART_CLIP_ID})`,
           }}
@@ -67,7 +67,7 @@ export function StatCard({
 
     return (
       <motion.div
-        className="relative flex size-60 shrink-0 cursor-pointer transition-colors duration-300"
+        className="relative flex size-60 shrink-0"
         animate={{ scale: [1, 1.05, 1], opacity: 1 }}
         transition={{
           scale: {
@@ -77,7 +77,7 @@ export function StatCard({
           },
           opacity: { duration: 0.4, delay: index * 0.08 },
         }}
-        whileHover={{ scale: 1.08 }}
+        
       >
         <div
           className="relative size-full"
@@ -114,7 +114,7 @@ export function StatCard({
   if (!enableFloatAnimation) {
     return (
       <div className="flex size-60 shrink-0 flex-col items-center justify-center">
-        <div className="flex size-full flex-col items-center justify-center rounded-full border-2 border-sense-rose bg-secondary/10 p-2 text-center transition-colors duration-300 hover:bg-sense-rose/10 animate-pulse-subtle cursor-pointer">
+        <div className="flex size-full flex-col items-center justify-center rounded-full border-2 border-sense-rose bg-secondary/10 p-2 text-center animate-pulse-subtle">
           <h4 className="text-2xl font-bold text-sense-dark sm:text-3xl">
             {item.value}
           </h4>
@@ -132,10 +132,10 @@ export function StatCard({
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      whileHover={{ scale: 1.03 }}
+      
     >
       <motion.div
-        className="flex size-full flex-col items-center justify-center rounded-full border-2 border-sense-rose bg-secondary/10 p-2 text-center transition-colors duration-300 hover:bg-sense-rose/10 cursor-pointer"
+        className="flex size-full flex-col items-center justify-center rounded-full border-2 border-sense-rose bg-secondary/10 p-2 text-center"
         style={{ willChange: "transform" }}
         animate={{ y: [-amplitude, amplitude, -amplitude] }}
         transition={{

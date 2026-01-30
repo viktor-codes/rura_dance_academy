@@ -128,7 +128,7 @@ export function StatCard({
 
   return (
     <motion.div
-      className="flex size-60 flex-shrink-0 flex-col items-center justify-center"
+      className="flex size-60 shrink-0 flex-col items-center justify-center"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
